@@ -1,0 +1,11 @@
+<h1>Create a new account!</h1>
+
+<form action="/user" method="POST">
+	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	<label>Name:</label> <br> <input type="text" name="name"> <br>
+	<label>WCA ID:</label><br>  <input type="text" name="wcaid"> <br>
+	<label>Password:</label> <br> <input type="password" name="password"> <br>
+	<label>Email:</label> <br> <input type="text" name="email"> <br>
+	<label>Phone:</label> <br> <input type="text" name="phone"> <br>
+	<input type="submit">
+</form>

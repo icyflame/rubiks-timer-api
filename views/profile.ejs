@@ -1,0 +1,9 @@
+<% if (req.session.authenticated) { %>
+
+You  are logged in as <%= req.session.username %>
+
+<% } else { %>
+
+You are not logged in.
+
+<% } %>

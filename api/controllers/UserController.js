@@ -22,8 +22,10 @@
  			else{
 
  				if (parsedReq.password === user.password){
+ 					req.session.authenticated = true;
+ 					req.session.username = user.email;
  					return res.json({
- 						user: "authenticated"
+ 						user: "authenticated",
  					});
  				}
 

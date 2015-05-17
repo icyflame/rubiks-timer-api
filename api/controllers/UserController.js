@@ -5,16 +5,34 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-module.exports = {
+ module.exports = {
 
-	createnewuser: function(req, res){
+ 	loginuser: function(req, res){
 
-		return res.json({
-			title: JSON.stringify(req.body)
-		});
+ 		var parsedReq = JSON.parse(JSON.stringify(req.body));
 
-		// return res.json(req);
-	}
-	
-};
+ 		var currentUser = User.findOne({ email: parsedReq.email }).exec(function(err, user){
+
+ 			if(!user){
+ 				return res.json({
+ 					user: "does not exist"
+ 				})
+ 			}
+
+ 			else{
+
+ 				if (parsedReq.password === user.password){
+ 					return res.json({
+ 						user: "authenticated"
+ 					});
+ 				}
+
+ 				else
+ 					return res.json({
+ 						user: "invalid password"
+ 					})
+ 			}
+ 		});
+ 	}	
+ };
 

@@ -1,0 +1,8 @@
+<h1>Sign in to your account!</h1>
+
+<form action="/login" method="POST">
+	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	<label>Email:</label> <br> <input type="text" name="email"> <br>
+	<label>Password:</label> <br> <input type="password" name="password"> <br>
+	<input type="submit">
+</form>
